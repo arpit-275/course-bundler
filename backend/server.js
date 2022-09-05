@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const app = require('./app');
 const connectDB = require('./config/dbConn');
+const app = require('./app');
 const PORT = process.env.PORT || 5000;
 
 console.log('Mode:', process.env.NODE_ENV);
@@ -15,5 +15,4 @@ mongoose.connection.once('open', () => {
 
 mongoose.connection.on('error', (err) => {
   console.log(err);
-  logEvents(`${err.no}: ${err.code}\t${err.syscall}\t${err.hostname}`, 'mongoErrLog.log');
 });

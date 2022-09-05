@@ -1,11 +1,12 @@
 const Course = require('../models/Course');
+const catchAsyncError = require('../middlewares/catchAsyncError');
 
 /**
  * @desc   Get all courses
  * @route  GET /courses
  * @access Private
  */
-exports.getAllCourses = async (req, res, next) => {
+exports.getAllCourses = catchAsyncError(async (req, res, next) => {
   const keyword = req.query.keyword || '';
   const category = req.query.category || '';
 
@@ -23,4 +24,4 @@ exports.getAllCourses = async (req, res, next) => {
     success: true,
     courses,
   });
-};
+});
