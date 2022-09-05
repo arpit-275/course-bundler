@@ -78,4 +78,4 @@ schema.methods.getResetToken = function () {
   return resetToken;
 };
 
-export const User = mongoose.model('User', schema);
+module.exports = mongoose.model('User', schema);

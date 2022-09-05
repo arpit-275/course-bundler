@@ -1,7 +1,8 @@
-import express from 'express';
-import { config } from 'dotenv';
-config({ path: './config/config.env' });
-
+require('dotenv').config();
+const express = require('express');
 const app = express();
 
-export default app;
+app.use('/api/v1', require('./routes/course.routes'));
+app.use('/api/v1', require('./routes/user.routes'));
+
+module.exports = app;
